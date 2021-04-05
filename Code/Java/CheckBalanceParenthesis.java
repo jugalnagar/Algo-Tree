@@ -18,52 +18,47 @@ public class CheckBalanceParenthesis {
 			if(currentParenthesis=='(') {
             			stack.push(currentParenthesis);
         		}
-        		else if(currentParenthesis=='{')
-        		{   
-            			if(stack.isEmpty()||stack.peek()!='(')
+        		else if(currentParenthesis=='{') {   
+            			if(stack.isEmpty()||stack.peek()!='(') {
                 			stack.push(currentParenthesis);
-            			else 
+				}
+            			else { 
                 			return false;
+				}
         		}
-        		else if(currentParenthesis=='[')
-        		{
-            			if(stack.isEmpty() || (stack.peek()!='(' && stack.peek()!='{'))
+        		else if(currentParenthesis=='[') {
+            			if(stack.isEmpty() || (stack.peek()!='(' && stack.peek()!='{')) {
                 			stack.push(currentParenthesis);
-            			else 
+				}
+            			else { 
                 			return false;
+				}
         		}
-        		else if(currentParenthesis==')')
-        		{
-            			if(stack.isEmpty()||stack.peek()!='(')
+        		else if(currentParenthesis==')') {
+            			if(stack.isEmpty()||stack.pop()!='(') {
                 			return false;
-            			else
-            			{
-                			stack.pop();    
-            			}
+				}
             
         		}
-        		else if(currentParenthesis=='}')
-        		{
-            			if(stack.isEmpty()||stack.peek()!='{')
+        		else if(currentParenthesis=='}') {
+            			if(stack.isEmpty()||stack.pop()!='{') {
                 			return false;
-            			else
-            			{
-                			stack.pop();    
-            			}
+				}
         		}
-        		else if(currentParenthesis==']')
-        		{
-            			if(stack.isEmpty()||stack.peek()!='[')
+        		else if(currentParenthesis==']') {
+            			if(stack.isEmpty()||stack.pop()!='[') {
                 			return false;
-            			else
-            			{
-                			stack.pop();    
-            			}
+				}
         		}
     
 		}
-		if(!stack.isEmpty())
+
+		//At the end of traversal check whether stack is empty or not
+
+		if(!stack.isEmpty()) {
         		return false;
+		}
+
 		return true;
 	}
 
